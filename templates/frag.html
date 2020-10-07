@@ -1,0 +1,17 @@
+{% extends 'adminhome.html' %}
+{% block div %}
+{% for row in fdata %}
+<div class="holder">
+<div><p border="1px">
+    {{row[1]}}
+</p></div>
+<div><p border="1px">
+    {{row[2]}}
+</p></div>
+<div><p border="1px">
+    {{row[3]}}
+</p></div>
+</div>
+<<a href="/action/{{row[0]}}"    type="button" class="btn btn-success">upload</a>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blueprint: Page Stack Navigation</title>
+	<meta name="description" content="Blueprint: A basic template for a page stack navigation effect" />
+	<meta name="keywords" content="blueprint, template, html, css, page stack, 3d, perspective, navigation, menu" />
+	<meta name="author" content="Codrops" />
+
+	<link rel="stylesheet" type="text/css" href="/static/table/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/table/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/table/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/table/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/table/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/table/css/main.css">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/home/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="/static/home/css/component.css" />
+	<script src="/static/home/js/modernizr-custom.js"></script>
+
+
+
+</head>
+
+<body>
+	<!-- navigation -->
+	<nav class="pages-nav">
+		<div class="pages-nav__item"><a class="link link--page" href="#page-home">Home</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-1">Upload files</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-fileuploads">View Uploads</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-accessdownload">Access Download</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-filedownloads">View Downloads</a></div>
+		<div class="pages-nav__item"><a class="link link--page" href="#page-logout">Logout</a></div>
+		<div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-buy">Where to buy</a></div>
+		<div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-blog">Blog &amp; News</a></div>
+		<div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-contact">Contact</a></div>
+		<div class="pages-nav__item pages-nav__item--social">
+			<a class="link link--social link--faded" href="#"><i class="fa fa-twitter"></i><span class="text-hidden">Twitter</span></a>
+			<a class="link link--social link--faded" href="#"><i class="fa fa-linkedin"></i><span class="text-hidden">LinkedIn</span></a>
+			<a class="link link--social link--faded" href="#"><i class="fa fa-facebook"></i><span class="text-hidden">Facebook</span></a>
+			<a class="link link--social link--faded" href="#"><i class="fa fa-youtube-play"></i><span class="text-hidden">YouTube</span></a>
+		</div>
+	</nav>
+	<!-- /navigation-->
+	<!-- pages stack -->
+	<div class="pages-stack">
+		<!-- page -->
+		<div class="page" id="page-home">
+			<!-- Blueprint header -->
+			<header class="bp-header cf">
+				<span class="bp-header__present">FILE CRYPTO <span class="bp-tooltip bp-icon bp-icon--about" data-content="The file crypto app is the the safest way to store your files.."></span></span>
+				{% for row in name %}
+				<h1 class="bp-header__title">WELCOME {{row[0]}}
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  				<path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+				</svg>
+				</h1>
+				{% endfor %}
+			</header>
+			<div class="container" style="background: transparent">
+				<div class="row">
+					<div class="col-md-12">
+					<div class="jumbotron p-3" style="background: transparent">
+					<h2>DASH BOARD</h2>
+					<br>
+					{% with messages = get_flashed_messages() %}
+
+					{% if messages %}
+
+					{% for message in messages %}
+
+					<div class="alert alert-dark alert-dismissible" role="alert">
+
+						<button type="button"  class="close" data-dismiss="alert" aria-label="close">
+
+							<span aria-hidden="true">x</span>
+
+						</button>
+
+					{{message}}
+
+					</div>
+
+					{% endfor %}
+
+					{% endif %}
+
+					{% endwith %}
+					</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="page" id="page-1">
+		    <header class="bp-header cf">
+		    	<h1 class="bp-header__title">Upload FILES
+				<svg width="2em" height="2em" viewBox="0 -5 16 16" class="bi bi-cloud-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  				<path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+  				<path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+			</svg>
+				</h1>
+	    	</header>
+			<div class="container" style="background: transparent">
+				<div class="row">
+					<div class="col-md-12">
+					<div class="jumbotron p-3" style="background: transparent">
+					<h2>Upload Form</h2>
+					<br>
+					<form action="/upload_file" method="post" enctype="multipart/form-data">
+					<label>FILE NAME </label>
+
+					<input  type="text" name="filename" placeholder="ENTER FILE NAME">
+					<br>
+					<br>
+					<label>CHOOSE FILE</label>
+
+					<input  type="file" name="file">
+					<br>
+					<br>
+					<button style="float: left" type="submit" class="btn btn-primary btn-xs">UPLOAD</button>
+                </form>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+
+		<div class="page" id="page-fileuploads">
+			<header class="bp-header cf">
+				<h3 class="bp-header__title">FILE UPLOADS</h3>
+			</header>
+			<div class="container" style="background: transparent">
+				<div class="row">
+					<div class="col-md-12">
+					<div class="jumbotron p-3" style="background: transparent">
+					<h2>FILE UPLOADED
+					<svg width="1em" height="1em" viewBox="0 -2 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  						<path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
+ 						 <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
+					</svg>
+					</h2>
+						<br>
+						<div class="table100 ver3 m-b-110">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column1">FID</th>
+										<th class="cell100 column2">FILENAME</th>
+										<th class="cell100 column3">UPLOADED ON</th>
+										<th class="cell100 column7">ACTION</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<div class="table100-body js-pscroll">
+							<table>
+								<tbody>
+								{% for row in files %}
+									<tr class="row100 body">
+										<td class="cell100 column1">{{row[0]}}</td>
+										<td class="cell100 column2">{{row[1]}}</td>
+										<td class="cell100 column3">{{row[2]}}</td>
+										<td class="cell100 column7">
+
+											<a href="/request_acc/{{row[0]}}"    type="button" class="btn btn-primary btn-xs">REQUEST</a>
+											<a href="/delete_file/{{row[0]}}"    type="button" class="btn btn-danger btn-xs"  onclick="return confirm('Are U Sure To Delete ?')">DELETE</a>
+
+										</td>
+									</tr>
+								</tbody>
+								{% endfor %}
+							</table>
+						</div>
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div class="page" id="page-accessdownload">
+			<header class="bp-header cf">
+				<h1 class="bp-header__title">Request Status</h1>
+			</header>
+			<div class="container" style="background: transparent">
+				<div class="row">
+					<div class="col-md-12">
+					<div class="jumbotron p-3" style="background: transparent">
+						<h2>KEY DETAILS</h2>
+						<br>
+						<div class="table100 ver3 m-b-110">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column1">FID</th>
+										<th class="cell100 column2">FILENAME</th>
+										<th class="cell100 column3">KEY</th>
+										<th class="cell100 column7">ACTION</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<div class="table100-body js-pscroll">
+							<table>
+
+								<tbody>
+								{% for row in accepted %}
+									<tr class="row100 body">
+										<td class="cell100 column1">{{row[0]}}</td>
+										<td class="cell100 column2">{{row[1]}}</td>
+										<td class="cell100 column3">{{row[2]}}</td>
+										<td class="cell100 column7">
+											<a href="/get_download_data/{{row[0]}}"    type="button" class="btn btn-primary btn-xs">Download</a>
+										</td>
+									</tr>
+								</tbody>
+								{% endfor %}
+							</table>
+						</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page" id="page-filedownloads">
+			<header class="bp-header cf">
+				<h1 class="bp-header__title">FILE DOWNLOADS</h1>
+			</header>
+			<div class="container" style="background: transparent">
+				<div class="row">
+					<div class="col-md-12">
+					<div class="jumbotron p-3" style="background: transparent">
+					<h2>FILE DOWNLOADED</h2>
+						<br>
+						<div class="table100 ver3 m-b-110">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column1">FID</th>
+										<th class="cell100 column2">FILENAME</th>
+										<th class="cell100 column3">DOWNLOADED ON</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<div class="table100-body js-pscroll">
+							<table>
+								<tbody>
+								{% for row in download %}
+									<tr class="row100 body">
+										<td class="cell100 column1">{{row[0]}}</td>
+										<td class="cell100 column2">{{row[1]}}</td>
+										<td class="cell100 column3">{{row[2]}}</td>
+									</tr>
+								</tbody>
+								{% endfor %}
+							</table>
+						</div>
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="page" id="page-logout">
+			<header class="bp-header cf">
+				<h1 class="bp-header__title">LOGOUT</h1>
+			</header>
+			<div class="container" style="background: transparent">
+				<div class="row">
+					<div class="col-md-12">
+					<div class="jumbotron p-3" style="background: transparent">
+						<center>
+							<svg width="15em" height="15em" viewBox="0 0 16 16" class="bi bi-emoji-frown" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+ 								 <path fill-rule="evenodd" d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683z"/>
+ 								 <path d="M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+							</svg>
+							<br>
+							<br>
+							<h3>Are U Sure?</h3>
+							<br>
+							<br>
+							<a href="/ulogout"   type="button" class="btn btn-outline-success btn-lg">Bye!
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-closed" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  								<path fill-rule="evenodd" d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
+								<path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
+								</svg>
+							</a>
+						</center>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="page" id="page-buy">
+			<header class="bp-header cf">
+				<h1 class="bp-header__title">Where to buy</h1>
+				<p class="bp-header__desc">Under Progress......</p>
+				<p class="info">
+					"When people ask me why I don't eat meat or any other animal products, I say, 'Because they are unhealthy and they are the product of a violent and inhumane industry.'" &mdash;
+				</p>
+			</header>
+
+		</div>
+		<div class="page" id="page-blog">
+			<header class="bp-header cf">
+				<h1 class="bp-header__title">Blog &amp; News</h1>
+				<p class="bp-header__desc">what u want all is here </p>
+				<p class="info">
+					"The question is not, 'Can they reason?' nor, 'Can they talk?' but rather, 'Can they suffer?" &mdash; Jeremy Bentham
+				</p>
+			</header>
+
+		</div>
+		<div class="page" id="page-contact">
+			<header class="bp-header cf">
+				<h1 class="bp-header__title">Contact</h1>
+				<p class="bp-header__desc">for inquries</p>
+			</header>
+
+		<h3><center>
+			<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-phone" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  			<path fill-rule="evenodd" d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+  			<path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+			</svg>
+			: 6354251857
+		</center></h3>
+		<br>
+		<br>
+		<h3><center>
+			<svg width="1em" height="1em" viewBox="0 -2 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  			<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+			</svg>
+			:arpanpatel090@mail.com</center></h3>
+		</div>
+
+	</div>
+	<!-- /pages-stack -->
+	<button class="menu-button"><span>Menu</span></button>
+	<script src="/static/home/js/classie.js"></script>
+	<script src="/static/home/js/main.js"></script>
+
+<!--===============================================================================================-->
+	<script src="/static/table/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/table/vendor/bootstrap/js/popper.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/table/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/table/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+
+	</script>
+
+<!--===============================================================================================-->
+	<script src="/static/table/js/main.js"></script>
+
+</body>
+
+</html>
